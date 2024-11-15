@@ -34,7 +34,7 @@ def get_score(word):
             s += scores[ord(l)-97]
             used_letters.add(l)
         else:
-            s += scores[ord(l)-97]/2
+            s += scores[ord(l)-97]/4
     return s
 
 while((not won) and (tries < 6)):
@@ -120,8 +120,9 @@ while((not won) and (tries < 6)):
     top_score = 0
     best_word = ""
     for w in possible_words:
-        if get_score(w)>top_score:
-            top_score = get_score(w)
+        temp_score = get_score(w)
+        if temp_score > top_score:
+            top_score = temp_score
             best_word = w
 
     if (len(possible_words) > 0):
